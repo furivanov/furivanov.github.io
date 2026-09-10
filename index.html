@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rosi视频系列-精选高清视频资源与观看指南</title>
+    <meta name="description" content="rosi视频系列提供高清流畅的影视、动漫、综艺等视频资源，为用户带来丰富多元的观看体验。探索热门内容、更新动态与精选推荐，尽在rosi视频系列。">
+    <meta name="keywords" content="rosi视频系列,rosi视频,高清视频,在线观看,影视推荐,动漫更新,综艺娱乐">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; background-color: #f8f9fa; color: #333; line-height: 1.6; }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* 头部 */
+        .header { background-color: #1f2a36; color: #fff; padding: 15px 0; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
+        .header .container { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .logo { font-size: 1.8rem; font-weight: 700; letter-spacing: 1px; }
+        .logo span { color: #f0b90b; }
+        .nav ul { display: flex; gap: 25px; flex-wrap: wrap; }
+        .nav a { color: #d1d5db; font-weight: 500; transition: color 0.3s; }
+        .nav a:hover { color: #f0b90b; }
+        .search-box { display: flex; background: #2d3748; border-radius: 30px; padding: 5px 10px; }
+        .search-box input { background: transparent; border: none; outline: none; color: #fff; padding: 5px 10px; width: 180px; font-size: 0.9rem; }
+        .search-box button { background: #f0b90b; border: none; border-radius: 20px; padding: 5px 15px; color: #1f2a36; font-weight: 600; cursor: pointer; transition: background 0.3s; }
+        .search-box button:hover { background: #e0a800; }
+
+        /* 首屏 hero */
+        .hero { background: linear-gradient(135deg, #1f2a36 0%, #2d3e50 100%); color: #fff; padding: 60px 0 50px; }
+        .hero-content { max-width: 700px; }
+        .hero h1 { font-size: 2.6rem; font-weight: 800; line-height: 1.2; margin-bottom: 15px; }
+        .hero p { font-size: 1.1rem; color: #cbd5e0; margin-bottom: 25px; }
+        .hero-buttons { display: flex; gap: 15px; flex-wrap: wrap; }
+        .btn-primary { background: #f0b90b; color: #1f2a36; padding: 12px 28px; border-radius: 30px; font-weight: 600; transition: transform 0.2s, box-shadow 0.2s; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 15px rgba(240,185,11,0.4); }
+        .btn-outline { border: 2px solid #f0b90b; color: #f0b90b; padding: 10px 26px; border-radius: 30px; font-weight: 600; transition: all 0.3s; }
+        .btn-outline:hover { background: rgba(240,185,11,0.1); }
+
+        /* 分类标签 */
+        .category-bar { background: #fff; padding: 20px 0; border-bottom: 1px solid #e2e8f0; }
+        .category-list { display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .category-tag { background: #edf2f7; padding: 8px 20px; border-radius: 30px; font-size: 0.9rem; font-weight: 500; transition: all 0.3s; cursor: pointer; }
+        .category-tag:hover, .category-tag.active { background: #1f2a36; color: #fff; }
+
+        /* 内容区块通用 */
+        .section-title { font-size: 1.6rem; font-weight: 700; margin: 40px 0 20px; padding-left: 12px; border-left: 4px solid #f0b90b; }
+        .section-desc { color: #718096; margin-bottom: 15px; padding-left: 12px; }
+
+        /* 视频卡片网格 */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; }
+        .video-card { background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.08); transition: transform 0.2s, box-shadow 0.3s; cursor: pointer; }
+        .video-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .video-thumb { height: 140px; background: linear-gradient(135deg, #2d3748, #4a5568); display: flex; align-items: center; justify-content: center; color: #f0b90b; font-size: 2.5rem; position: relative; }
+        .video-thumb .play-icon { font-size: 3rem; opacity: 0.8; }
+        .video-info { padding: 15px; }
+        .video-info h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 5px; }
+        .video-info p { color: #718096; font-size: 0.85rem; }
+        .video-meta { display: flex; justify-content: space-between; align-items: center; margin-top: 8px; }
+        .tag { background: #fefcbf; color: #975a16; padding: 3px 8px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; }
+        .views { color: #a0aec0; font-size: 0.8rem; }
+
+        /* 更新列表 */
+        .update-list { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .update-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #f0f0f0; align-items: center; }
+        .update-item:last-child { border-bottom: none; }
+        .update-item .title { font-weight: 500; }
+        .update-item .date { color: #a0aec0; font-size: 0.85rem; }
+        .update-item .badge { background: #ff6b6b; color: #fff; font-size: 0.7rem; padding: 2px 8px; border-radius: 10px; margin-left: 10px; }
+
+        /* 双栏布局 */
+        .two-col { display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin: 30px 0; }
+        @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
+
+        /* 推荐内容 */
+        .recommend-item { display: flex; gap: 15px; background: #fff; border-radius: 10px; padding: 12px; margin-bottom: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.04); align-items: center; }
+        .recommend-thumb { width: 90px; height: 60px; background: linear-gradient(135deg, #4a5568, #718096); border-radius: 8px; flex-shrink: 0; }
+        .recommend-info h4 { font-size: 0.95rem; margin-bottom: 4px; }
+        .recommend-info span { font-size: 0.8rem; color: #a0aec0; }
+
+        /* 资讯区 */
+        .news-list { background: #fff; border-radius: 12px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .news-item { padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+        .news-item:last-child { border-bottom: none; }
+        .news-item h3 { font-size: 1rem; font-weight: 600; margin-bottom: 5px; }
+        .news-item p { color: #718096; font-size: 0.9rem; }
+
+        /* FAQ */
+        .faq-section { background: #fff; border-radius: 12px; padding: 30px; margin: 40px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .faq-item { margin-bottom: 20px; }
+        .faq-item h3 { font-size: 1.1rem; color: #1f2a36; margin-bottom: 8px; }
+        .faq-item p { color: #4a5568; }
+
+        /* 页脚 */
+        .footer { background: #1f2a36; color: #cbd5e0; padding: 30px 0; margin-top: 50px; }
+        .footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; }
+        .footer-col h4 { color: #fff; margin-bottom: 15px; font-size: 1.1rem; }
+        .footer-col ul li { margin-bottom: 8px; }
+        .footer-col a:hover { color: #f0b90b; }
+        .copyright { text-align: center; padding-top: 20px; border-top: 1px solid #2d3748; margin-top: 20px; font-size: 0.9rem; }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header .container { flex-direction: column; gap: 15px; }
+            .nav ul { justify-content: center; gap: 15px; }
+            .search-box input { width: 120px; }
+            .hero h1 { font-size: 2rem; }
+            .video-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+            .section-title { font-size: 1.3rem; }
+        }
+        @media (max-width: 480px) {
+            .hero-buttons { flex-direction: column; align-items: flex-start; }
+            .category-list { gap: 8px; }
+            .category-tag { padding: 6px 14px; font-size: 0.8rem; }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+    <!-- 头部 -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">rosi<span>视频</span>系列</div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">影视</a></li>
+                    <li><a href="#">动漫</a></li>
+                    <li><a href="#">综艺</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">专题</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索视频...">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 首屏 Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>rosi视频系列 · 精彩内容一站畅享</h1>
+                <p>为您精选高清影视、热门动漫与综艺节目。快速更新、流畅观看，打造专属的娱乐时光。探索 rosi 视频系列，开启非凡视觉体验。</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">立即观看</a>
+                    <a href="#" class="btn-outline">浏览全部内容</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类标签 -->
+    <div class="category-bar">
+        <div class="container">
+            <div class="category-list">
+                <span class="category-tag active">全部</span>
+                <span class="category-tag">电影</span>
+                <span class="category-tag">剧集</span>
+                <span class="category-tag">动漫</span>
+                <span class="category-tag">综艺</span>
+                <span class="category-tag">纪录片</span>
+                <span class="category-tag">短视频</span>
+            </div>
+        </div>
+    </div>
+
+    <main class="container">
+        <!-- 热门视频区 -->
+        <section>
+            <h2 class="section-title">🔥 本周热门视频</h2>
+            <p class="section-desc">rosi视频系列中近期最受关注的精彩内容，点击即可开始观看。</p>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>星际穿越之旅</h3>
+                        <p>科幻冒险大片</p>
+                        <div class="video-meta">
+                            <span class="tag">4K</span>
+                            <span class="views">128.4万次播放</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>美食人生 · 第二季</h3>
+                        <p>治愈系美食纪录片</p>
+                        <div class="video-meta">
+                            <span class="tag">精选</span>
+                            <span class="views">89.2万次播放</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>都市情感剧场</h3>
+                        <p>现代都市剧</p>
+                        <div class="video-meta">
+                            <span class="tag">热播</span>
+                            <span class="views">210.7万次播放</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>萌宠日常</h3>
+                        <p>轻松搞笑短视频</p>
+                        <div class="video-meta">
+                            <span class="tag">爆笑</span>
+                            <span class="views">56.3万次播放</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>极限运动合集</h3>
+                        <p>热血运动纪录片</p>
+                        <div class="video-meta">
+                            <span class="tag">刺激</span>
+                            <span class="views">45.8万次播放</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>经典老片修复</h3>
+                        <p>怀旧经典电影</p>
+                        <div class="video-meta">
+                            <span class="tag">怀旧</span>
+                            <span class="views">78.1万次播放</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 双栏布局：最新更新 + 推荐 -->
+        <div class="two-col">
+            <!-- 左侧：更新动态 -->
+            <section>
+                <h2 class="section-title">📅 最新更新</h2>
+                <div class="update-list">
+                    <div class="update-item">
+                        <span class="title">《暗夜追凶》第8集上线 <span class="badge">NEW</span></span>
+                        <span class="date">2024-03-15</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="title">《青春旋律》综艺第5期</span>
+                        <span class="date">2024-03-14</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="title">《山海奇谭》动漫第12话</span>
+                        <span class="date">2024-03-14</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="title">《宇宙边缘》纪录片完整版</span>
+                        <span class="date">2024-03-13</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="title">《喜剧之夜》精彩片段</span>
+                        <span class="date">2024-03-13</span>
+                    </div>
+                    <div class="update-item">
+                        <span class="title">《古装传奇》第20集</span>
+                        <span class="date">2024-03-12</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 右侧：小编推荐 -->
+            <aside>
+                <h2 class="section-title">⭐ 编辑精选</h2>
+                <div class="recommend-item">
+                    <div class="recommend-thumb"></div>
+                    <div class="recommend-info">
+                        <h4>高分悬疑《迷雾追凶》</h4>
+                        <span>悬疑 · 豆瓣9.0</span>
+                    </div>
+                </div>
+                <div class="recommend-item">
+                    <div class="recommend-thumb"></div>
+                    <div class="recommend-info">
+                        <h4>暖心治愈《小森林》</h4>
+                        <span>剧情 · 治愈系</span>
+                    </div>
+                </div>
+                <div class="recommend-item">
+                    <div class="recommend-thumb"></div>
+                    <div class="recommend-info">
+                        <h4>热血国漫《逆天邪神》</h4>
+                        <span>动漫 · 战斗</span>
+                    </div>
+                </div>
+                <div class="recommend-item">
+                    <div class="recommend-thumb"></div>
+                    <div class="recommend-info">
+                        <h4>爆笑真人秀《奔跑吧》</h4>
+                        <span>综艺 · 搞笑</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- 动漫专区 -->
+        <section>
+            <h2 class="section-title">🎬 动漫专区 · 持续更新</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>斗罗大陆</h3>
+                        <p>玄幻热血战斗</p>
+                        <div class="video-meta">
+                            <span class="tag">热血</span>
+                            <span class="views">356.9万次播放</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>海贼王</h3>
+                        <p>经典冒险长篇</p>
+                        <div class="video-meta">
+                            <span class="tag">经典</span>
+                            <span class="views">523.1万次播放</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>咒术回战</h3>
+                        <p>奇幻战斗番</p>
+                        <div class="video-meta">
+                            <span class="tag">高能</span>
+                            <span class="views">198.5万次播放</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb"><span class="play-icon">▶</span></div>
+                    <div class="video-info">
+                        <h3>中国奇谭</h3>
+                        <p>国产原创动画</p>
+                        <div class="video-meta">
+                            <span class="tag">口碑</span>
+                            <span class="views">89.7万次播放</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 资讯与专题 -->
+        <section class="news-list">
+            <h2 class="section-title">📰 视频资讯与专题</h2>
+            <div class="news-item">
+                <h3>rosi视频系列 2024年3月内容大盘点</h3>
+                <p>本月多部大热剧集与动画迎来完结，新一季内容蓄势待发。rosi视频系列持续为用户带来最新最全的观看选择。</p>
+            </div>
+            <div class="news-item">
+                <h3>高清画质升级：4K专区正式上线</h3>
+                <p>为满足用户对画质的高要求，rosi视频系列已全面升级4K内容库，带来更细腻的视觉享受。</p>
+            </div>
+            <div class="news-item">
+                <h3>观影指南：如何快速找到想看的内容？</h3>
+                <p>利用分类筛选与搜索功能，精准定位目标内容。同时可参考编辑推荐和热门排行，发现更多精彩。</p>
+            </div>
+        </section>
+
+        <!-- FAQ 部分 -->
+        <section class="faq-section">
+            <h2 class="section-title">🙋 常见问题解答</h2>
+            <div class="faq-item">
+                <h3>rosi视频系列的内容是否每日更新？</h3>
+                <p>是的，我们的编辑团队会每日同步最新上线的影视剧、动漫及综艺内容，确保用户能第一时间观看。</p>
+            </div>
+            <div class="faq-item">
+                <h3>观看视频需要安装特定播放器吗？</h3>
+                <p>不需要，rosi视频系列使用网页播放器，兼容主流浏览器与移动设备，点击即可在线观看，无需额外安装。</p>
+            </div>
+            <div class="faq-item">
+                <h3>如何获取视频播放的清晰度选项？</h3>
+                <p>播放器会根据网络状况自动调整清晰度，您也可以手动在播放器设置中选择流畅、高清、超清等不同画质。</p>
+            </div>
+            <div class="faq-item">
+                <h3>内容是否有版权保障？</h3>
+                <p>rosi视频系列重视版权保护，所有上架内容均来自正规授权渠道，致力于提供合法合规的观看服务。</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-col">
+                <h4>rosi视频系列</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">联系方式</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>内容分类</h4>
+                <ul>
+                    <li><a href="#">电影</a></li>
+                    <li><a href="#">剧集</a></li>
+                    <li><a href="#">动漫</a></li>
+                    <li><a href="#">综艺</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助支持</h4>
+                <ul>
+                    <li><a href="#">使用帮助</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">© 2024 rosi视频系列 版权所有 · 本站内容仅供学习交流</div>
+    </footer>
+
+</body>
+  </html>
