@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>病句搭配不当-常见类型解析、修改方法与语文学习指南</title>
+    <meta name="description" content="深入解析病句搭配不当的常见类型，包括主谓搭配不当、动宾搭配不当、修饰语与中心语搭配不当等，提供实用的修改方法与练习建议，帮助语文学习者快速掌握病句辨析技巧。">
+    <meta name="keywords" content="病句搭配不当,搭配不当类型,病句修改方法,主谓搭配不当,动宾搭配不当,语文病句辨析">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f8f5f0;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* 页眉 */
+        header {
+            background: linear-gradient(135deg, #2b3a4a 0%, #3a506b 100%);
+            color: #fff;
+            padding: 18px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-icon {
+            font-size: 30px;
+        }
+        .logo-text {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .header-tagline {
+            font-size: 14px;
+            opacity: 0.9;
+            text-align: right;
+        }
+        /* 导航 */
+        nav {
+            background: #fff;
+            border-bottom: 2px solid #e9e4dc;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-list {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .nav-list li a {
+            display: block;
+            padding: 14px 22px;
+            text-decoration: none;
+            color: #3a506b;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.2s;
+            border-bottom: 3px solid transparent;
+        }
+        .nav-list li a:hover,
+        .nav-list li a.active {
+            color: #1a6b8a;
+            border-bottom-color: #1a6b8a;
+        }
+        /* Hero 首屏 */
+        .hero {
+            background: linear-gradient(120deg, #eef3f7 0%, #f8f5f0 100%);
+            padding: 50px 0;
+            border-bottom: 1px solid #e0d8ce;
+        }
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 30px;
+        }
+        .hero-text {
+            flex: 1 1 500px;
+        }
+        .hero-text h1 {
+            font-size: 36px;
+            color: #2b3a4a;
+            margin-bottom: 16px;
+            line-height: 1.3;
+            border-left: 5px solid #1a6b8a;
+            padding-left: 18px;
+        }
+        .hero-text p {
+            font-size: 17px;
+            color: #4a5c6e;
+            margin-bottom: 12px;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: #1a6b8a;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .hero-illustration {
+            flex: 0 0 280px;
+            text-align: center;
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 20px;
+            box-shadow: 0 8px 20px rgba(43,58,74,0.08);
+            border: 1px solid #e9e4dc;
+        }
+        .hero-illustration .big-icon {
+            font-size: 64px;
+            line-height: 1.4;
+        }
+        .hero-illustration .example-text {
+            font-size: 16px;
+            color: #6b7a8a;
+            margin: 12px 0 5px;
+            font-weight: 500;
+        }
+        .hero-illustration .wrong-text {
+            color: #b85c5c;
+            text-decoration: line-through;
+            font-size: 18px;
+        }
+        .hero-illustration .right-text {
+            color: #2d7a5c;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        /* 区块通用 */
+        section {
+            padding: 45px 0;
+        }
+        .section-title {
+            font-size: 28px;
+            color: #2b3a4a;
+            margin-bottom: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #6b7a8a;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+        /* 类型卡片 */
+        .type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .type-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #eee7de;
+            transition: transform 0.2s;
+        }
+        .type-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+        }
+        .type-card h3 {
+            font-size: 19px;
+            color: #1a6b8a;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .type-card .example {
+            background: #f0f4f8;
+            border-radius: 8px;
+            padding: 10px 14px;
+            margin: 10px 0;
+            font-size: 15px;
+        }
+        .type-card .wrong {
+            color: #b85c5c;
+            text-decoration: line-through;
+        }
+        .type-card .correct {
+            color: #2d7a5c;
+            font-weight: 500;
+        }
+        .type-card .analysis {
+            font-size: 14px;
+            color: #4a5c6e;
+            margin-top: 8px;
+            border-top: 1px dashed #d6cfc5;
+            padding-top: 8px;
+        }
+        /* 方法步骤 */
+        .method-wrap {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border: 1px solid #eee7de;
+        }
+        .method-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        .method-list li {
+            counter-increment: step-counter;
+            padding: 12px 0 12px 55px;
+            position: relative;
+            border-bottom: 1px dashed #e0d8ce;
+            font-size: 16px;
+        }
+        .method-list li:last-child {
+            border-bottom: none;
+        }
+        .method-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 14px;
+            width: 36px;
+            height: 36px;
+            background: #1a6b8a;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 17px;
+        }
+        .method-list strong {
+            color: #2b3a4a;
+        }
+        /* 表格样式 */
+        .table-wrapper {
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+        }
+        th {
+            background: #2b3a4a;
+            color: #fff;
+            padding: 14px 16px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        td {
+            padding: 12px 16px;
+            border-bottom: 1px solid #e9e4dc;
+            font-size: 15px;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        tr:nth-child(even) td {
+            background-color: #faf7f2;
+        }
+        .wrong-tag {
+            color: #b85c5c;
+            font-weight: 500;
+        }
+        .right-tag {
+            color: #2d7a5c;
+            font-weight: 500;
+        }
+        /* 练习区域 */
+        .practice-box {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            border-left: 5px solid #1a6b8a;
+        }
+        .practice-item {
+            margin-bottom: 16px;
+        }
+        .practice-item p {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+        .practice-item .sentence {
+            background: #f0f4f8;
+            padding: 8px 14px;
+            border-radius: 6px;
+        }
+        .practice-item details {
+            margin-top: 6px;
+            color: #4a5c6e;
+        }
+        .practice-item summary {
+            cursor: pointer;
+            color: #1a6b8a;
+            font-weight: 500;
+            font-size: 14px;
+        }
+        /* FAQ */
+        .faq-list {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 14px;
+            padding: 18px 24px;
+            border: 1px solid #eee7de;
+        }
+        .faq-item h3 {
+            font-size: 17px;
+            color: #2b3a4a;
+            margin-bottom: 6px;
+        }
+        .faq-item p {
+            color: #4a5c6e;
+            font-size: 15px;
+        }
+        /* 页脚 */
+        footer {
+            background: #2b3a4a;
+            color: #cbd5dd;
+            padding: 40px 0 20px;
+            margin-top: 30px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        .footer-about {
+            flex: 1 1 300px;
+        }
+        .footer-about h4 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+        .footer-about p {
+            font-size: 14px;
+        }
+        .footer-links {
+            flex: 0 0 200px;
+        }
+        .footer-links h4 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #b8c9d4;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            color: #fff;
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #3e5164;
+            padding-top: 18px;
+            font-size: 14px;
+            color: #8ea3b3;
+        }
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 28px;
+            }
+            .hero-illustration {
+                flex-basis: 100%;
+            }
+            .nav-list li a {
+                padding: 12px 14px;
+                font-size: 14px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .method-list li {
+                padding-left: 50px;
+            }
+            .header-tagline {
+                display: none;
+            }
+            .logo-text {
+                font-size: 18px;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+            .method-wrap {
+                padding: 20px;
+            }
+            .practice-box {
+                padding: 20px;
+            }
+            .type-card {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo-area">
+                <span class="logo-icon">✍️</span>
+                <span class="logo-text">语文病句讲堂</span>
+            </div>
+            <div class="header-tagline">专注句子辨析 · 提升语言表达力</div>
+        </div>
+    </header>
+
+    <nav>
+        <ul class="nav-list">
+            <li><a href="#types">常见类型</a></li>
+            <li><a href="#method">修改方法</a></li>
+            <li><a href="#table">辨析对照</a></li>
+            <li><a href="#practice">练习检测</a></li>
+            <li><a href="#faq">常见问答</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- 首屏 -->
+        <div class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>病句搭配不当：从诊断到修改的完整指南</h1>
+                    <p>搭配不当是语文病句辨析中最常见的类型之一，指句子中相关成分之间的组合不符合语法规则或语言习惯。掌握搭配不当的规律，是提升语言准确性与表达效果的关键一步。</p>
+                    <p style="margin-top:10px;">本页系统梳理主谓、动宾、修饰语与中心语等搭配不当的具体表现，并提供实用的辨析步骤与修改策略。</p>
+                    <span class="hero-badge">典型例句：他的写作水平明显改进了。</span>
+                </div>
+                <div class="hero-illustration">
+                    <div class="big-icon">🔍</div>
+                    <p class="example-text">例句对比</p>
+                    <p class="wrong-text">水平改进了 ✖</p>
+                    <p style="font-size:14px;color:#6b7a8a;">↓ 正确搭配</p>
+                    <p class="right-text">水平提高了 ✔</p>
+                    <p style="font-size:13px;color:#8a97a5;margin-top:8px;">动宾搭配不当示例：<br>“改进”与“水平”不能搭配</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要类型 -->
+        <section id="types">
+            <div class="container">
+                <h2 class="section-title">搭配不当的六大常见类型</h2>
+                <p class="section-subtitle">了解病句的“病灶”所在，才能精准对症下药</p>
+                <div class="type-grid">
+                    <div class="type-card">
+                        <h3>1. 主谓搭配不当</h3>
+                        <p>主语和谓语在意义或逻辑上无法搭配，造成句子表意不清。</p>
+                        <div class="example">
+                            <p><span class="wrong">他的学习态度和以前相比明显增加了。</span></p>
+                            <p><span class="correct">他的学习态度和以前相比明显好转了。</span></p>
+                        </div>
+                        <div class="analysis">“态度”不能“增加”，应与“好转”“转变”等搭配。</div>
+                    </div>
+                    <div class="type-card">
+                        <h3>2. 动宾搭配不当</h3>
+                        <p>动词与宾语之间缺乏合理的支配关系，是最常见的错误。</p>
+                        <div class="example">
+                            <p><span class="wrong">我们要养成勤洗手的好行为。</span></p>
+                            <p><span class="correct">我们要养成勤洗手的好习惯。</span></p>
+                        </div>
+                        <div class="analysis">“养成”可与“习惯”搭配，但不能与“行为”搭配。</div>
+                    </div>
+                    <div class="type-card">
+                        <h3>3. 主宾搭配不当</h3>
+                        <p>主语和宾语在“是”“成为”等判断词前后不一致。</p>
+                        <div class="example">
+                            <p><span class="wrong">秋天的北京是一年中最美的季节。</span></p>
+                            <p><span class="correct">北京的秋天是一年中最美的季节。</span></p>
+                        </div>
+                        <div class="analysis">主语“秋天”与宾语“季节”一致，原句错将“北京”作主语。</div>
+                    </div>
+                    <div class="type-card">
+                        <h3>4. 修饰语与中心语搭配不当</h3>
+                        <p>定语、状语等修饰成分与中心语不匹配，影响语义的准确性。</p>
+                        <div class="example">
+                            <p><span class="wrong">他穿着一件灰白色的上衣和一顶蓝帽子。</span></p>
+                            <p><span class="correct">他穿着一件灰白色的上衣，戴着一顶蓝帽子。</span></p>
+                        </div>
+                        <div class="analysis">“穿”不能搭配“帽子”，应分别搭配“穿”和“戴”。</div>
+                    </div>
+                    <div class="type-card">
+                        <h3>5. 关联词语搭配不当</h3>
+                        <p>复句中关联词的使用不符合逻辑关系或固定搭配。</p>
+                        <div class="example">
+                            <p><span class="wrong">只有努力学习，就能取得好成绩。</span></p>
+                            <p><span class="correct">只有努力学习，才能取得好成绩。</span></p>
+                        </div>
+                        <div class="analysis">“只有”需与“才”搭配，不能与“就”连用。</div>
+                    </div>
+                    <div class="type-card">
+                        <h3>6. 一面与两面搭配不当</h3>
+                        <p>句子前后在肯定/否定、是否/能否等逻辑上不对应。</p>
+                        <div class="example">
+                            <p><span class="wrong">能否具备良好的心理素质，是比赛取胜的关键。</span></p>
+                            <p><span class="correct">具备良好的心理素质，是比赛取胜的关键。</span></p>
+                        </div>
+                        <div class="analysis">前面有“能否”两面词，后面只说“取胜”一面，应统一。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 修改方法 -->
+        <section id="method" style="background:#eef3f7;">
+            <div class="container">
+                <h2 class="section-title">四步修改法：快速定位并修正搭配不当</h2>
+                <p class="section-subtitle">掌握一套可复用的分析流程，让病句辨析不再凭感觉</p>
+                <div class="method-wrap">
+                    <ol class="method-list">
+                        <li>
+                            <strong>第一步：提取主干</strong><br>
+                            去掉修饰成分，先看主语、谓语、宾语能否搭配。例如“他的写作水平明显改进了”，主干为“水平改进”，立刻能发现“水平”不能“改进”。
+                        </li>
+                        <li>
+                            <strong>第二步：检查修饰语与中心语</strong><br>
+                            将定语、状语、补语分别与中心语对照，看语义是否通顺。注意数量词、形容词、副词的使用是否恰当。
+                        </li>
+                        <li>
+                            <strong>第三步：审视关联词与逻辑</strong><br>
+                            检查复句中的关联词搭配是否正确，并分析句子是否存在一面与两面、肯定与否定等逻辑对应问题。
+                        </li>
+                        <li>
+                            <strong>第四步：对比常用搭配习惯</strong><br>
+                            将可疑的词语组合与语言中的常见搭配进行对比。例如“提高水平”“改进方法”“养成习惯”才是约定俗成的用法。
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- 对照表格 -->
+        <section id="table">
+            <div class="container">
+                <h2 class="section-title">典型误例与修正对照表</h2>
+                <p class="section-subtitle">通过正误对照，加深对搭配规律的记忆</p>
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>错误句子</th>
+                                <th>错误类型</th>
+                                <th>修改后句子</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="wrong-tag">他的革命精神时刻浮现在我眼前。</td>
+                                <td>主谓搭配不当</td>
+                                <td class="right-tag">他的革命形象时刻浮现在我眼前。</td>
+                            </tr>
+                            <tr>
+                                <td class="wrong-tag">我们要提高安全意识，防止不再发生事故。</td>
+                                <td>否定不当/搭配不当</td>
+                                <td class="right-tag">我们要提高安全意识，防止再发生事故。</td>
+                            </tr>
+                            <tr>
+                                <td class="wrong-tag">这次活动的目的是为了增进同学之间的友谊。</td>
+                                <td>句式杂糅/搭配不当</td>
+                                <td class="right-tag">这次活动的目的是增进同学之间的友谊。</td>
+                            </tr>
+                            <tr>
+                                <td class="wrong-tag">他做事非常武断，总能很快做出决定。</td>
+                                <td>修饰语与中心语搭配不当</td>
+                                <td class="right-tag">他做事非常果断，总能很快做出决定。</td>
+                            </tr>
+                            <tr>
+                                <td class="wrong-tag">只要经常锻炼身体，才会增强体质。</td>
+                                <td>关联词语搭配不当</td>
+                                <td class="right-tag">只要经常锻炼身体，就会增强体质。</td>
+                            </tr>
+                            <tr>
+                                <td class="wrong-tag">能否珍惜水资源，是保护地球环境的重要前提。</td>
+                                <td>一面与两面搭配不当</td>
+                                <td class="right-tag">珍惜水资源，是保护地球环境的重要前提。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 练习检测 -->
+        <section id="practice" style="background:#eef3f7;">
+            <div class="container">
+                <h2 class="section-title">自我检测小练习</h2>
+                <p class="section-subtitle">先独立思考，再点击查看答案与解析</p>
+                <div class="practice-box">
+                    <div class="practice-item">
+                        <p><strong>题目1</strong></p>
+                        <p class="sentence">学校开展了丰富多彩的校园文化活动，极大地丰富了同学们的精神世界。</p>
+                        <details>
+                            <summary>查看答案与分析</summary>
+                            <p>✅ 此句没有搭配不当的问题。“开展活动”“丰富精神世界”搭配均正确。</p>
+                        </details>
+                    </div>
+                    <div class="practice-item">
+                        <p><strong>题目2</strong></p>
+                        <p class="sentence">随着科技的发展，人们的生活水平不断改善。</p>
+                        <details>
+                            <summary>查看答案与分析</summary>
+                            <p>❌ “水平”与“改善”搭配不当。可改为：“人们的生活水平不断提高。”</p>
+                        </details>
+                    </div>
+                    <div class="practice-item">
+                        <p><strong>题目3</strong></p>
+                        <p class="sentence">这篇文章的内容和见解都很丰富。</p>
+                        <details>
+                            <summary>查看答案与分析</summary>
+                            <p>❌ “见解”可以与“丰富”搭配吗？“见解”通常与“深刻”“独到”搭配。可改为：“这篇文章的内容很丰富，见解也很深刻。”</p>
+                        </details>
+                    </div>
+                    <div class="practice-item">
+                        <p><strong>题目4</strong></p>
+                        <p class="sentence">由于加强了管理，企业的经济效益有了很大改进。</p>
+                        <details>
+                            <summary>查看答案与分析</summary>
+                            <p>❌ “效益”与“改进”不能搭配。应改为：“经济效益有了很大提高。”</p>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="container">
+                <h2 class="section-title">关于搭配不当的常见问答</h2>
+                <p class="section-subtitle">解答学习过程中的高频疑惑</p>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>Q1：搭配不当和语序不当有什么区别？</h3>
+                        <p>搭配不当是词语组合在语义、逻辑或习惯上无法匹配；语序不当则是句子中词语或分句的排列顺序不符合语法规则。两者都影响句子的规范性，但“病灶”位置不同。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q2：如何快速判断一个搭配是否恰当？</h3>
+                        <p>最实用的方法是“替换法”和“语感法”。先试着用其他常见搭配替换可疑词语，看是否通顺；同时多读规范的文章，积累固定的词语搭配习惯，语感会越来越准确。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q3：在考试中，如何避免被干扰项误导？</h3>
+                        <p>建议先快速提取主干，再逐一检查修饰成分。尤其注意那些看似通顺但实际搭配不合理的选项。平时可整理一本“易错搭配本”，考前翻看效果很好。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Q4：网络用语会影响对搭配不当的判断吗？</h3>
+                        <p>网络语言具有灵活性和创新性，但在语文考试和正式书面表达中，仍需遵循约定俗成的语法规则。判断时应以规范现代汉语的搭配习惯为准。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h4>语文病句讲堂</h4>
+                    <p>专注于句子结构分析与语言规范学习，提供实用的病句辨析技巧、练习资源与语言知识分享，帮助学习者提升书面表达准确性。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>学习导航</h4>
+                    <ul>
+                        <li><a href="#types">搭配不当类型</a></li>
+                        <li><a href="#method">修改方法</a></li>
+                        <li><a href="#table">正误对照表</a></li>
+                        <li><a href="#practice">在线练习</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>相关主题</h4>
+                    <ul>
+                        <li><a href="#">成分残缺辨析</a></li>
+                        <li><a href="#">语序不当分析</a></li>
+                        <li><a href="#">句式杂糅整理</a></li>
+                        <li><a href="#">常见易错搭配</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>© 2025 语文病句讲堂 · 本页面内容仅供语言学习参考</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                                                                                               </html>
